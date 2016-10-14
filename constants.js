@@ -7,4 +7,6 @@ function define(name, value) {
     });
 }
 
-define("BASE_IMAGE_URI", 'http://justinpaulin.com/image.gif?time=');
+define("PORT", '80');
+define("BASE_URL", 'http://45.79.132.130:' + this.PORT);
+define("BASE_IMAGE_URI", this.BASE_URL + '/image.gif?time=');

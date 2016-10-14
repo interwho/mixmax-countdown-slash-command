@@ -4,7 +4,8 @@ This command allows you to add a live countdown image to your outgoing emails us
 
 ## Usage
 
-1. Run `sudo apt-get install libcairo2-dev libjpeg-dev libgif-dev`
+0. Install node
+1. Install other required system dependancies using `sudo apt-get install libcairo2-dev libjpeg-dev libgif-dev` on Debian or `brew install cairo` on macOS
 2. Install using `npm install`
 3. Run using `npm start`
 
@@ -23,5 +24,5 @@ curl http://localhost:8080/resolver?text=1:00:00
 To get a countdown image, request:
 
 ```
-curl http://localhost:8080/image.gif?time=unix_timestamp_in_gmt
+curl http://localhost:8080/image.gif?time=iso_format_end_time
 ```

@@ -62,7 +62,7 @@ module.exports = {
      */
     time: function (timeString) {
         // grab the current and target time
-        let target = moment(timeString);
+        let target = moment(timeString, moment.ISO_8601);
         let current = moment();
         
         // difference between the 2 (in ms)
@@ -104,8 +104,8 @@ module.exports = {
         });
         
         // estimate the font size based on the provided width
-        let fontSize = Math.floor(this.width / 12) + 'px';
-        let fontFamily = 'Courier New'; // monospace works slightly better
+        let fontSize = Math.floor(this.width / 6) + 'px';
+        let fontFamily = 'monospace'; // monospace works slightly better
         
         // set the font style
         ctx.font = [fontSize, fontFamily].join(' ');
@@ -116,15 +116,16 @@ module.exports = {
         enc.start();
         enc.setRepeat(0);
         enc.setDelay(1000);
-        enc.setQuality(10);
+        enc.setQuality(100);
 
         // if we have a moment duration object
         if(typeof timeResult === 'object'){
             for(let i = 0; i < this.frames; i++){
                 // extract the information we need from the duration
+                let days = Math.floor(timeResult.asDays());
                 let hours = Math.floor(timeResult.asHours());
-                let minutes = Math.floor(timeResult.asMinutes()) - (days * 24 * 60) - (hours * 60);
-                let seconds = Math.floor(timeResult.asSeconds()) - (days * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60);
+                let minutes = Math.floor(timeResult.asMinutes()) - (hours * 60);
+                let seconds = Math.floor(timeResult.asSeconds()) - (hours * 60 * 60) - (minutes * 60);
                 
                 // make sure we have at least 2 characters in the string
                 hours = (hours.toString().length == 1) ? '0' + hours : hours;

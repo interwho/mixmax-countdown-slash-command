@@ -24,7 +24,7 @@ module.exports = function(req, res) {
   var endTime = moment().add(timeArray[0], 'hours').add(timeArray[1], 'minutes').add(timeArray[2], 'seconds');
 
   // Generate the HTML and return
-  var html = '<img style="max-width:100%;" src="' + constants.BASE_SERVER_URI + endTime + '" width="150px"/>';
+  var html = '<img style="max-width:100%;" src="' + constants.BASE_IMAGE_URI + endTime.toISOString() + '" width="150px"/>';
   res.json({
     body: html
   });

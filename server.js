@@ -1,18 +1,21 @@
 'use strict';
+const constants = require("./constants");
 const express = require('express');
 const path = require('path');
 
-// Define and make available cache folders
+// Define cache folders
 const tmpDir = __dirname + '/tmp/';
 const publicDir = __dirname + '/public/';
-app.use(express.static(publicDir));
-app.use(express.static(tmpDir));
 
 // Initialize image generator
 const CountdownGenerator = require('./api/image');
 
 // Initialize the server
 const app = express();
+
+// Cache Routes
+app.use(express.static(publicDir));
+app.use(express.static(tmpDir));
 
 // API Routes
 app.get('/typeahead', require('./api/typeahead'));
@@ -28,12 +31,12 @@ app.get('/image.gif', function (req, res) {
     }
 
     CountdownGenerator.init(time, width, height, color, bg, name, frames, () => {
-        let filePath = tmpDir + name + '.gif';
+        let filePath = tmpDir + 'default.gif';
         res.sendFile(filePath);
     });
 });
 
 // Start the server
-app.listen(process.env.PORT || 8080);
+app.listen(process.env.PORT || constants.PORT);
 
 module.exports = app;
