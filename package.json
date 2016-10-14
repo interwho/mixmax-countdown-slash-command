@@ -1,0 +1,30 @@
+{
+  "name": "mixmax-countdown-slash-command",
+  "version": "1.0.0",
+  "description": "Countdown slash command for Mixmax",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/interwho/mixmax-countdown-slash-command.git"
+  },
+  "author": "Justin Paulin <hello@justinpaulin.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/interwho/mixmax-countdown-slash-command/issues"
+  },
+  "homepage": "https://github.com/interwho/mixmax-countdown-slash-command",
+  "dependencies": {
+    "express": "^4.12.3",
+    "canvas": "^1.3.16",
+    "express": "^4.13.4",
+    "gifencoder": "^1.0.6",
+    "moment": "^2.13.0"
+  },
+  "engines": {
+    "node": "6.0.0"
+  }
+}
