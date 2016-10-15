@@ -2,11 +2,6 @@
 
 This command allows you to add a live countdown image to your outgoing emails using Mixmax. Times should be in the format HH:MM:SS.
 
-## Demo Output
-Countdown until 07:17:39 GMT on 2016-10-17
-
-![Demo Countdown](http://45.79.132.130:80/image.gif?time=2016-10-17T07:17:39.377Z)
-
 ## Usage
 
 1. Install node
